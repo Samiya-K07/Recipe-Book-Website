@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <title>About</title>
+    <!-- favicon -->
+    <link rel="icon" href="./assets/favicon-16x16.png" type="image/png" sizes="16x16">
+    
+    <!-- main css -->
+    <link rel="stylesheet" href="./css/main.css" />
+  </head>
+  
+  <body style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+   
+  <!-- nav start-->
+  <nav class="navbar">
+    <div class="nav-center">
+
+    <!-- header -->
+      <div class="nav-header">
+        <a href="index.html" class="nav-logo">
+          <img src="./assets/cookbook logo.svg" alt="My Cookbook">
+        </a>
+      </div>
+      
+      <!-- links -->
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">HOME</a>
+        <a href="recipes.html" class="nav-link">RECIPES</a>
+        <a href="about.html" class="nav-link">ABOUT</a>
+        <a href="today'sspecial.html" class="nav-link">TODAY'S SPECIAL</a>
+        <a href="quiz.html" class="nav-link">QUIZ</a>
+      </div>
+    </div>
+  </nav>
+  
+  <header class="site-header"></header>
+  <!-- nav end -->
+
+  <!-- main content -->
+  <main class="page">
+    
+    <section class="about-page">
+      
+      <article>
+        <h3> Welcome to the Quiz! </h3>
+        <div id="question"></div>
+    <input type="text" id="answerInput">
+    <button id="checkButton" onclick="checkAnswer()">Check Answer</button>
+    <p id="result"></p>
+    <p id="correctAnswer"></p>
+    <p id="score"></p>
+    
+    <script>
+      const questions = [
+      { 
+          question: 'What is the national dish of Pakistan?', 
+          answer: 'Nihari' 
+        },
+        { 
+          question: 'Which country is known as the birthplace of pizza', 
+          answer: 'Italy' 
+        },
+        { 
+          question: 'What is the ranking of Pakistani cuisine in the world?', 
+          answer: '47' 
+        },
+        {
+         question:'The spices and herbs were adopted from which empire?',
+         answer:'Mughal'
+        },
+        {
+         question:'which country is known as the land of cakes',
+         answer:'Scotland'
+        }
+      ];
+    
+      let currentQuestion = 0;
+      let score = 0;
+    
+      function displayQuestion() {
+        document.getElementById('question').innerText = questions[currentQuestion].question;
+      }
+    
+      function checkAnswer() {
+        const userAnswer = document.getElementById('answerInput').value.trim().toLowerCase();
+        const correctAnswer = questions[currentQuestion].answer.toLowerCase();
+    
+        if (userAnswer === correctAnswer) {
+          document.getElementById('result').innerText = 'Correct!';
+          score++;
+          updateScore();
+          document.getElementById('correctAnswer').innerText = '';
+        } else {
+          document.getElementById('result').innerText = 'Wrong!';
+          document.getElementById('correctAnswer').innerText = 'The correct answer is: ' + questions[currentQuestion].answer;
+        }
+    
+        // Move to the next question or end the quiz
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+          displayQuestion();
+        } else {
+          document.getElementById('question').innerText = 'Quiz completed!';
+          document.getElementById('answerInput').style.display = 'none';
+          document.getElementById('result').style.display = 'none';
+          document.getElementById('correctAnswer').style.display = 'none';
+          document.getElementById('score').innerText = 'Total Score: ' + score + ' out of ' + questions.length;
+          document.getElementById('checkButton').style.display = 'none'; // Hide the "Check Answer" button
+        }
+      }
+    
+      function updateScore() {
+        document.getElementById('score').innerText = 'Score: ' + score;
+      }
+    
+      // Start the quiz
+      displayQuestion();
+      updateScore();
+    </script>
+    
+    </section>
+      
+  </main>
+
+  <!-- end of main content -->
+
+  <!-- footer -->
+   <footer style="background-color:rgb(68, 42, 37); height: 4rem; display: flex; align-items: center; justify-content: center; color: beige;"> 
+    <p style="margin-bottom: 0;"> 
+      &copy; 2024&nbsp;<strong>My CookBook</strong>. All rights reserved. | Terms of Use | Privacy Policy | Sitemap
+    </p>
+   </footer>
+    
+  </body>
+
+</html>
