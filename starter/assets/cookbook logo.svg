@@ -1,0 +1,39 @@
+<svg width="300" height="100" xmlns="http://www.w3.org/2000/svg">
+  
+  <!-- Background (Optional, to visualize) -->
+  <rect width="100%" height="100%" fill="none" />
+
+  <!-- Text with shadow and border -->
+  <text 
+    x="35" 
+    y="51" 
+    font-family="Roboto, sans-serif" 
+    font-size="40" 
+    fill="black"  
+    stroke="black" 
+    stroke-width="1"
+    text-anchor="middle"
+    dominant-baseline="middle" 
+    style="filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));"
+  >
+    MY
+</text>
+
+  <!-- Text for "CookBook" -->
+  <text 
+    x="178" 
+    y="51" 
+    font-family="Roboto, sans-serif" 
+    font-size="40" 
+    fill="#D2691E" 
+    stroke="brown" 
+    stroke-width="1"
+    text-anchor="middle"
+    dominant-baseline="middle" 
+    style="filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.5));"
+  >
+  COOKBOOK
+</text>
+
+</svg>
+
